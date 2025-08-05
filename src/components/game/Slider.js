@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 
-const Slider = () => {
-  const [markerPosition, setMarkerPosition] = useState(50); // Posição inicial do marcador
-  const sliderRef = useRef(null); // Ref para o container do slider
+const Slider = ({ showTarget }) => {
+  const [markerPosition, setMarkerPosition] = useState(50);
+  const sliderRef = useRef(null);
 
   const handleSliderChange = (event) => {
     setMarkerPosition(event.target.value);
@@ -16,6 +16,23 @@ const Slider = () => {
             bg-gradient-to-r from-red-500 via-purple-700 to-blue-700 
             transition-opacity duration-500 ease-in-out"
         ></div>
+
+        {/* Div do alvo */}
+        {showTarget && (
+          <div
+            className="absolute h-full bg-[#ffff00d9] border-l-4 border-r-4 border-white flex items-center"
+            style={{
+              left: `75%`, // Posição fixa do alvo (você pode torná-la dinâmica com uma prop)
+              transform: "translateX(-50%)",
+            }}
+          >
+            <div className="text-black font-bold text-2xl px-4">2</div>
+            <div className="text-black font-bold text-3xl px-4 border-l-2 border-r-2 border-white h-full flex items-center">
+              3
+            </div>
+            <div className="text-black font-bold text-2xl px-4">2</div>
+          </div>
+        )}
 
         <div
           className="absolute top-[-10px] bottom-[-10px] w-1 
