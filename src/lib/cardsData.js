@@ -38,4 +38,9 @@ export const cardPairs = [
   { id: 33, left: "Pokémon forte", right: "Pokémon fraco" },
   { id: 34, left: "Nome de cachorro", right: "Nome de gato" },
   { id: 35, left: "Melhor de dia", right: "Melhor de noite" },
+  { id: 35, left: "Trabalho chato", right: "Trabalho divertido" },
+  { id: 36, left: "Time pequeno", right: "Time grande" },
+  { id: 37, left: "Comida de botequim", right: "Comida de restaurante chique" },
+  { id: 38, left: "Jogo antigo", right: "Jogo atual" },
+  { id: 39, left: "Opinião impopular", right: "Consenso geral" },
 ];

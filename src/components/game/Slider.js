@@ -17,17 +17,16 @@ const Slider = ({ showTarget }) => {
             transition-opacity duration-500 ease-in-out"
         ></div>
 
-        {/* Div do alvo */}
         {showTarget && (
           <div
             className="absolute h-full bg-[#ffff00d9] border-l-4 border-r-4 border-white flex items-center"
             style={{
-              left: `75%`, // Posição fixa do alvo (você pode torná-la dinâmica com uma prop)
+              left: `75%`,
               transform: "translateX(-50%)",
             }}
           >
-            <div className="text-black font-bold text-2xl px-4">2</div>
-            <div className="text-black font-bold text-3xl px-4 border-l-2 border-r-2 border-white h-full flex items-center">
+            <div className="text-black font-bold text-2xl px-4.5">2</div>
+            <div className="text-black font-bold text-3xl px-4.5 border-l-2 border-r-2 border-white h-full flex items-center">
               3
             </div>
             <div className="text-black font-bold text-2xl px-4">2</div>
