@@ -1,12 +1,20 @@
-import React, { useState, useRef } from "react";
+import { useRef, useEffect } from "react";
 
-const Slider = ({ showTarget }) => {
-  const [markerPosition, setMarkerPosition] = useState(50);
+const Slider = ({
+  value,
+  onChange,
+  showTarget,
+  targetPosition,
+  disabled,
+  onWidthChange,
+}) => {
   const sliderRef = useRef(null);
 
-  const handleSliderChange = (event) => {
-    setMarkerPosition(event.target.value);
-  };
+  useEffect(() => {
+    if (sliderRef.current && onWidthChange) {
+      onWidthChange(sliderRef.current.offsetWidth);
+    }
+  }, [onWidthChange]);
 
   return (
     <main>
@@ -17,19 +25,24 @@ const Slider = ({ showTarget }) => {
             transition-opacity duration-500 ease-in-out"
         ></div>
 
-        {showTarget && (
+        {showTarget && targetPosition !== null && (
           <div
             className="absolute h-full bg-[#ffff00d9] border-l-4 border-r-4 border-white flex items-center"
             style={{
-              left: `75%`,
+              left: `${targetPosition}%`,
               transform: "translateX(-50%)",
+              width: "154px",
             }}
           >
-            <div className="text-black font-bold text-2xl px-4.5">2</div>
-            <div className="text-black font-bold text-3xl px-4.5 border-l-2 border-r-2 border-white h-full flex items-center">
+            <div className="text-black font-bold text-2xl px-4.5 flex-1 text-center">
+              2
+            </div>
+            <div className="text-black font-bold text-3xl px-4.5 border-l-1 border-r-1 border-white h-full flex items-center flex-1 text-center">
               3
             </div>
-            <div className="text-black font-bold text-2xl px-4">2</div>
+            <div className="text-black font-bold text-2xl px-4.5 flex-1 text-center">
+              2
+            </div>
           </div>
         )}
 
@@ -38,7 +51,7 @@ const Slider = ({ showTarget }) => {
                        bg-white rounded-sm shadow-lg shadow-white/70 
                        pointer-events-none z-20"
           style={{
-            left: `${markerPosition}%`,
+            left: `${value}%`,
             transform: "translateX(-50%)",
           }}
         ></div>
@@ -47,8 +60,9 @@ const Slider = ({ showTarget }) => {
           type="range"
           min="0"
           max="100"
-          value={markerPosition}
-          onChange={handleSliderChange}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
           className="absolute inset-0 w-full h-full 
                        appearance-none bg-transparent cursor-pointer z-30
                        [&::-webkit-slider-thumb]:appearance-none 
