@@ -43,7 +43,7 @@ export default function Room() {
     }
 
     if (!socketRef.current) {
-      socketRef.current = io("http://localhost:3001", {
+      socketRef.current = io(process.env.NEXT_PUBLIC_WEBSOCKET_URL, {
         reconnection: true,
         reconnectionAttempts: 5,
         reconnectionDelay: 1000,
