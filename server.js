@@ -9,7 +9,7 @@ app.use(cors());
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://mindsync-two.vercel.app"],
     methods: ["GET", "POST"],
   },
   pingTimeout: 60000,
