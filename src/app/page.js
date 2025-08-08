@@ -83,28 +83,39 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-900 text-white p-8">
-      <Image
-        src="/images/ms-logo.png"
-        alt="Logo MindSync"
-        className="py-8"
-        width={780}
-        height={496}
-      />
-      <div className="flex flex-col gap-4 w-full max-w-xs">
-        <Button onClick={handleLocal} disabled={isLoading}>
-          Local
-        </Button>
-        <Button onClick={handleCreateRoom} disabled={isLoading}>
-          Criar Sala
-        </Button>
-        <Button onClick={handleJoinRoom} disabled={isLoading}>
-          Entrar em Sala
-        </Button>
-        <Button onClick={handleHowToPlay} disabled={isLoading}>
-          Como Jogar
-        </Button>
+    <div className="flex flex-col justify-between min-h-screen bg-slate-900 text-white p-8">
+      <div className="flex flex-col items-center">
+        <Image
+          src="/images/ms-logo.png"
+          alt="Logo MindSync"
+          className="py-8"
+          width={780}
+          height={496}
+        />
+        <div className="flex flex-col gap-4 w-full max-w-xs">
+          <Button onClick={handleLocal} disabled={isLoading}>
+            Local
+          </Button>
+          <Button onClick={handleCreateRoom} disabled={isLoading}>
+            Criar Sala
+          </Button>
+          <Button onClick={handleJoinRoom} disabled={isLoading}>
+            Entrar em Sala
+          </Button>
+          <Button onClick={handleHowToPlay} disabled={isLoading}>
+            Como Jogar
+          </Button>
+        </div>
       </div>
+
+      <p className="text-lg text-gray-400 text-center mt-8">
+        Desenvolvido por{" "}
+        <a href="https://github.com/marcxsdev" target="_blank">
+          <span className="inline-block font-bold transition-transform duration-200 hover:scale-110">
+            Marcos
+          </span>
+        </a>
+      </p>
     </div>
   );
 }
