@@ -1,4 +1,4 @@
-export const cardPairs = [
+const cardPairs = [
   { id: 1, left: "Melhor frio", right: "Melhor quente" },
   { id: 2, left: "Fraco", right: "Forte" },
   { id: 3, left: "Cheira mal", right: "Cheira bem" },
@@ -44,3 +44,4 @@ export const cardPairs = [
   { id: 38, left: "Jogo antigo", right: "Jogo atual" },
   { id: 39, left: "Opinião impopular", right: "Consenso geral" },
 ];
+module.exports = { cardPairs };

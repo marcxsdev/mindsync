@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Slider from "./Slider";
 import Button from "../ui/Button";
 import { cardPairs } from "@/lib/cardsData";
+import Link from "next/link";
 
 function GameBoard() {
   const [currentCards, setCurrentCards] = useState(null);
@@ -11,7 +12,7 @@ function GameBoard() {
   const [targetPosition, setTargetPosition] = useState(null);
   const [gamePhase, setGamePhase] = useState("hintGiverView");
   const [score, setScore] = useState(0);
-  const [sliderWidth, setSliderWidth] = useState(1000); // Valor inicial, será atualizado pelo Slider
+  const [sliderWidth, setSliderWidth] = useState(1000);
 
   useEffect(() => {
     startNewRound();
@@ -27,34 +28,31 @@ function GameBoard() {
   };
 
   const calculateScore = () => {
-    const targetWidthPx = 154; // Largura fixa do alvo em pixels
-    const zoneWidthPx = targetWidthPx / 3; // Cada zona tem ~51.33px
+    const targetWidthPx = 154;
+    const zoneWidthPx = targetWidthPx / 3;
 
-    // Converter a largura do alvo e das zonas para porcentagem
-    const targetWidthPercent = (targetWidthPx / sliderWidth) * 100; // Largura do alvo em % do slider
-    const zoneWidthPercent = targetWidthPercent / 3; // Cada zona em %
+    const targetWidthPercent = (targetWidthPx / sliderWidth) * 100;
+    const zoneWidthPercent = targetWidthPercent / 3;
 
-    // Calcular os limites das zonas em porcentagem
     const leftZoneStart = targetPosition - targetWidthPercent / 2;
     const leftZoneEnd = leftZoneStart + zoneWidthPercent;
     const centerZoneEnd = leftZoneEnd + zoneWidthPercent;
     const rightZoneEnd = centerZoneEnd + zoneWidthPercent;
 
-    // Verificar em qual zona o marcador está
     if (markerPosition >= leftZoneStart && markerPosition < leftZoneEnd) {
-      return 2; // Zona esquerda
+      return 2;
     } else if (
       markerPosition >= leftZoneEnd &&
       markerPosition < centerZoneEnd
     ) {
-      return 3; // Zona central
+      return 3;
     } else if (
       markerPosition >= centerZoneEnd &&
       markerPosition <= rightZoneEnd
     ) {
-      return 2; // Zona direita
+      return 2;
     } else {
-      return 0; // Fora do alvo
+      return 0;
     }
   };
 
@@ -92,8 +90,17 @@ function GameBoard() {
 
   return (
     <div className="w-full max-w-4xl rounded-2xl bg-slate-800 p-8 shadow-2xl border border-blue-900 flex flex-col">
-      <div className="bg-[#0f3460] w-40 rounded-xl py-4 px-5 text-center border border-blue-900 mb-5 mx-auto">
-        <p className="m-0 text-4xl font-bold">{score}</p>
+      <div className="flex justify-between mb-5">
+        <div className="w-[121px]"></div>
+
+        <div className="bg-[#0f3460] w-40 rounded-xl py-4 px-5 text-center border border-blue-900 flex items-center justify-center">
+          <p className="text-4xl font-bold">{score}</p>
+        </div>
+        <Link href="/">
+          <Button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+            Sair
+          </Button>
+        </Link>
       </div>
       <Slider
         value={markerPosition}
@@ -101,7 +108,7 @@ function GameBoard() {
         showTarget={showTarget}
         targetPosition={targetPosition}
         disabled={gamePhase !== "guesserTurn"}
-        onWidthChange={setSliderWidth} // Passa a largura do slider
+        onWidthChange={setSliderWidth}
       />
       <div className="pt-4 flex items-center justify-between">
         <h1 className="text-2xl font-semibold uppercase text-center shrink-0 w-48">
