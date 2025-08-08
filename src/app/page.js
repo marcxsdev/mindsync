@@ -67,10 +67,11 @@ export default function Home() {
       title: "Como Jogar",
       html: `
         <p><strong>Modo Local:</strong></p>
-        <p>1. O Hinter clica em "Revelar!" para ver o alvo.</p>
+        <p>1. O Hinter clica em "Revelar!" para ver o alvo enquanto o Guesser fecha os olhos.</p>
         <p>2. O Hinter clica em "Esconder" e dá uma dica ao Guesser.</p>
         <p>3. O Guesser move o marcador com base na dica e clica em "Confirmar".</p>
         <p>4. O alvo é revelado, a pontuação é atualizada, e uma nova rodada começa com "Finalizar!".</p>
+        <br/>
         <p><strong>Modo Multiplayer:</strong></p>
         <p>1. O Hinter cria uma sala e compartilha o código com o Guesser.</p>
         <p>2. O Guesser entra na sala com o código.</p>
