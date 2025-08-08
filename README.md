@@ -1,6 +1,7 @@
 # MindSync
 
-Bem-vindo ao MindSync, um projeto divertido e interativo construído com Next.js e Socket.IO! Este é um jogo em tempo real onde dois jogadores colaboram para alcançar a maior pontuação possível. Um jogador, o Hinter, dá dicas e define um alvo secreto em um slider, enquanto o outro, o Guesser, tenta posicionar um marcador o mais próximo possível do alvo com base nas dicas. O jogo é perfeito para amigos que querem se divertir juntos e provar que estão em Sincronia!  
+Bem-vindo ao MindSync, um projeto divertido e interativo construído com Next.js e Socket.IO! Este é um jogo em tempo real onde dois jogadores colaboram para alcançar a maior pontuação possível. Um jogador, o Hinter, dá dicas e define um alvo secreto em um slider, enquanto o outro, o Guesser, tenta posicionar um marcador o mais próximo possível do alvo com base nas dicas. O jogo é perfeito para amigos que querem se divertir juntos e provar que estão em Sincronia!
+
 O projeto foi implantado na Vercel e no Render (backend WebSocket) e está pronto para ser jogado online. Experimente agora: [Jogar Online!](https://mindsync-two.vercel.app)
 
 ## 🎯 Funcionalidades
