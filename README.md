@@ -36,7 +36,7 @@ O projeto foi implantado na Vercel e no Render (backend WebSocket) e está pront
 
 ## 🚀 Como Jogar
 
-1. Acesse o Jogo: Visite https://seu-projeto.vercel.app.
+1. Acesse o Jogo: Visite https://mindsync-two.vercel.app.
 2. Crie ou Entre em uma Sala:
 
 - Hinter: Insira seu nome e clique em "Criar Sala" para gerar um código único.
